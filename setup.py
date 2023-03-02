@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='pySDCP',
-    version='1',
+    version='1.0.0',
     packages=['pysdcp'],
     url='https://github.com/ZachIndigo/pySDCP',
     license='MIT',
