@@ -66,7 +66,7 @@ Supported Sony projectors should include:
 * VPL-FHZ700L
 
 ## Installation 
-`pip install git+https://github.com/ZachIndigo/pySDCP.git`
+`pip install git+https://github.com/ZachIndigo/pySDCP`
 
 ## Examples
 
