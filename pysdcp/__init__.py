@@ -172,6 +172,11 @@ class Projector:
                            data=POWER_STATUS["START_UP"] if on else POWER_STATUS["STANDBY"])
         return True
 
+    def set_mute(self, mute=True):
+        self._send_command(action=ACTIONS["SET"], command=COMMANDS["SET_MUTE"],
+                           data=POWER_STATUS["START_UP"] if mute else POWER_STATUS["STANDBY"])
+        return True
+
     def set_HDMI_input(self, hdmi_num: int):
         self._send_command(action=ACTIONS["SET"], command=COMMANDS["INPUT"],
                            data=INPUTS["HDMI1"] if hdmi_num == 1 else INPUTS["HDMI2"])
@@ -180,6 +185,13 @@ class Projector:
     def get_power(self):
         data = self._send_command(action=ACTIONS["GET"], command=COMMANDS["GET_STATUS_POWER"])
         if data == POWER_STATUS["STANDBY"] or data == POWER_STATUS["COOLING"] or data == POWER_STATUS["COOLING2"]:
+            return False
+        else:
+            return True
+
+    def get_mute(self):
+        data = self._send_command(action=ACTIONS["GET"], command=COMMANDS["GET_STATUS_MUTE"])
+        if data == MUTE_STATUS["MUTE"]:
             return False
         else:
             return True
